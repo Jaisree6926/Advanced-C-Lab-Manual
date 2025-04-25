@@ -9,12 +9,42 @@ Algorithm:
 4.	Call the search function and perform other linked list operations as needed.
  
 Program:
+           
+           struct Node{
+           struct Node *next; char data;
+           }*head;
+           void search(char data)
+           {
+           struct Node *ptr; char item=data; int i=0,flag;
+           ptr = head; if(ptr == NULL)
+           {
+           printf("Empty List\n");
+           }
+           else
+           {
+           while (ptr!=NULL)
+           {
+           if(ptr->data == item)
+           {
+           printf("item %c found at location %d ",item,i+1); flag=0;
+           }
+           i++;
+           ptr = ptr -> next;
+           }
+           if(flag!=0)
+           {
+           printf("Item not found\n");
+           }
+           }
+           
+           }
+            
 
-//type your code here
 
 Output:
 
-//paste your output here
+
+![437301429-aeda7c89-6df7-4660-bb79-5d10d21df285](https://github.com/user-attachments/assets/a489243d-03d1-4237-8747-9da1e8550676)
 
 
 
@@ -34,11 +64,30 @@ Algorithm:
  
 Program:
 
-//type your code here
+           struct Node{ char data;
+           struct Node *next;
+           }*head;
+           
+           void insert(char data)
+           {
+           struct Node *n=(struct Node*)malloc(sizeof(struct Node)); struct Node *temp;
+           if(head==NULL)
+           {
+           head=n;
+           n->data=data; n->next=NULL; temp=head; return;
+           }
+           while(temp->next!=NULL)
+           {
+           temp=temp->next;
+           }
+           n->data=data; n->next=NULL; temp->next=n;
+           }
+
 
 Output:
 
-//paste your output here
+//paste your output here![437301587-6d9ef7a2-6b75-4419-ba82-180edd608478](https://github.com/user-attachments/assets/82db19a9-bf9f-40eb-8e30-1753cafedfe9)
+
 
  
 Result:
@@ -57,12 +106,25 @@ Algorithm:
 4.	Move to the next node by updating the temp pointer to point to the next node (temp = temp->next).
  
 Program:
-
-//type your code here
+        
+        struct Node
+        {
+        struct Node *prev; struct Node *next; int data;
+        }*head;
+        void display()
+        {
+        struct Node *temp; temp=head; while(temp!=0)
+        {
+        printf("%d ",temp->data); temp=temp->next;
+        }
+        
+        
+        
+        }
 
 Output:
 
-//paste your output here
+![437301807-98ff83e2-5054-42d8-9d35-67e5681e1cd9](https://github.com/user-attachments/assets/28f0e609-991a-44c5-a160-d7f426e68689)
 
 
 Result:
@@ -83,11 +145,37 @@ Algorithm:
  
 Program:
 
-//type your code here
+      struct Node
+      {
+      struct Node *prev; struct Node *next; float data;
+      }*head;
+      void insert(float data)
+      {
+      
+      struct Node *n=(struct Node*)malloc(sizeof(struct Node)); struct Node *temp;
+      if(head==NULL)
+      {
+      head=n;
+      n->data=data; n->next=NULL; n->prev=NULL; temp=head;
+      }
+      else
+      {
+      while(temp->next!=NULL)
+      {
+      temp=temp->next;
+      }
+      n->data=data; n->next=NULL; n->prev=temp; temp->next=n;
+      }
+      
+      
+      }
+       
+
 
 Output:
 
-//paste your output here
+![437301928-ed7a6b06-fbcb-473d-9cce-26f0485e2f11](https://github.com/user-attachments/assets/d1c201de-5cbc-454e-a1d0-536611010c83)
+
 
 
 Result:
@@ -125,11 +213,35 @@ o	If the element is not found in any node, print a message indicating the elemen
 
 Program:
 
-//type your code here
+          struct Node{
+              char data; 
+              struct Node *next;
+          }*head;
+          void delete()
+          {
+              if(head==NULL){
+                  printf("List is empty\n");
+                  return;
+              }
+              else if(head->next==NULL){
+                  head=NULL;
+                  free(head);
+                  printf("Node deleted from the begining ...\n");
+              }
+              else{
+                  struct Node *ptr;
+                  ptr=head;
+                  head=head->next;
+                  free(ptr);
+                  printf("Node deleted from the begining ...\n");
+              }
+          }
+
 
 Output:
 
-//paste your output here
+
+![437302307-6ac7446f-325d-4cc2-8aa2-bbb52b626fa9](https://github.com/user-attachments/assets/cab24116-0646-43a1-a457-961ab0dd25f6)
 
 
 
